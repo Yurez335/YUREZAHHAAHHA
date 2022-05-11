@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp3.ProjectSources.Windows.StudiosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3.ProjectSources.Windows"
+        mc:Ignorable="d"
+        Title="StudiosWindow" Height="450" Width="800" Icon="/ProjectSources/Images/Logo.jpg">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/ProjectSources/Images/Logo.jpg" Stretch="Fill"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Назад" Click="Button_Click"/>
+                <Button Content="Забронировать"/>
+                <TextBlock Text="+79637571541"/>
+            </StackPanel>
+        </Grid>
+        <ListBox Name="LbStudios" Grid.Row="1">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image/>
+                        <TextBlock Name="ShortDescription"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Подробнее"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="от"/>
+                                <TextBlock Name="StudioCost"/>
+                                <TextBlock Text="₽/час"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
